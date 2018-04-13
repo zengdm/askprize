@@ -169,10 +169,17 @@
   text-align: center;
 }
 
-.error-box image {
+.error-box-img {
   width: 280rpx;
   height: 280rpx;
   margin: 40rpx 0 20rpx;
+}
+
+.error-box-close{
+  width: 72rpx;
+  height: 72rpx;
+  margin-top: -18rpx;
+  margin-left: 544rpx;
 }
 
 .error-box view {
@@ -193,3 +200,5 @@
 .white {
   color: #fff;
 }
+
+

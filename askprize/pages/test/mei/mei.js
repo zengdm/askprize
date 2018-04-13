@@ -55,7 +55,10 @@ Page({
     that.prizeApi = new prizeApi(that);
     that.prizeApi.qlist('123', 'cb_qlist');
     console.log(getApp().accredit);
-
+    wx.showShareMenu({
+      // shareTicket 是获取转发目标群信息的票据，只有拥有 shareTicket 才能拿到群信息，用户每次转发都会生成对应唯一的shareTicket 。
+      withShareTicket: true
+    })
   },
 
   cb_qlist: function (res, opt) {
@@ -222,7 +225,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    wx.showShareMenu({
+      withShareTicket: true
+    })
   },
 
   /**
@@ -255,7 +260,33 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (res) {
+    return {
+      title: '详情页',
+      path: '/pages/test/mei/mei',
+      success(res) {
+        console.log(res)
+        var shareTickets = res.shareTickets
+        if (!shareTickets) {
+          return false
+        }
+        wx.getShareInfo({
+          shareTicket: shareTickets[0],
+          success(res) {
+            // 是微信群
+            // res.errMsg; // 错误信息
+            var encryptedData = res.encryptedData;
+            var iv = res.iv;
+          },
+          fail(){
+            // 不是微信群
+          }
+        })
+      },
+      fail(res) {
+        // console.log(res)
+        console.log('转发失败')
+      }
+    }
   }
 })

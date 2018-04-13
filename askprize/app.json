@@ -1,14 +1,15 @@
 {
-  "pages": [
+    "pages": [
+      "pages/test/topiclist/topiclist",
+      "pages/test/intimelist/intimelist",
+      "pages/prize/detail/detail",
+       "pages/test/mei/mei",
         "pages/test/nan/nan",
-        "pages/prize/detail/detail",
         "pages/prize/success/success",
-        "pages/test/mei/mei",
         "pages/index/index",
         "pages/goClub/forum/forum",
         "pages/goClub/model/model",
         "pages/goClub/user/user",
-        "pages/test/topiclist/topiclist",
         "pages/logs/logs"
     ],
     "window": {

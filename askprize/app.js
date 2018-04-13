@@ -28,7 +28,7 @@ App({
   // 时间同步
   timerAsync:'',
 
-  onLaunch: function () {
+  onLaunch: function (ops) {
     console.log('appjs');
     var that = this;
     // 1. 获取手机系统信息
@@ -65,6 +65,10 @@ App({
         }
       }
     })
+    if (ops.scene == 1044) {
+      // 小程序在群里被打开后，获取情景值和shareTicket
+      console.log(ops.shareTicket)
+    }
   },
   // 与服务器时间同步
   getServerTime: function() {
